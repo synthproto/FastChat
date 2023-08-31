@@ -5,7 +5,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: fastchat:latest
+    image: dongxiaoman/fastchat:0.0.1
     ports:
       - "21001:21001"
     entrypoint: ["python3.9", "-m", "fastchat.serve.controller", "--host", "0.0.0.0", "--port", "21001"]
@@ -15,7 +15,7 @@ services:
       dockerfile: Dockerfile
     volumes:
       - huggingface:/root/.cache/huggingface
-    image: fastchat:latest
+    image: dongxiaoman/fastchat:0.0.1
     deploy:
       resources:
         reservations:
@@ -28,7 +28,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: fastchat:latest
+    image: dongxiaoman/fastchat:0.0.1
     ports:
       - "8000:8000"
     entrypoint: ["python3.9", "-m", "fastchat.serve.openai_api_server", "--controller-address", "http://fastchat-controller:21001", "--host", "0.0.0.0", "--port", "8000"]
